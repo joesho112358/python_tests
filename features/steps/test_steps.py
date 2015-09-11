@@ -14,17 +14,15 @@ def step_impl(context):
 	home.get("https://www.google.com")
 	assert "Google" == driver.title
 
-@when('I serach for "{text}"')
+@when('I search for "{text}"')
 def step_impl(context, text):
 	home = home_page.HomePage(context.driver)
 	home.search_element = text
 	home.search_element = Keys.RETURN
 
-@then('I can see a tutorial\'s point link')
+@then('I can see a python download link')
 def step_impl(context):
 	driver = context.driver
 	driver.implicitly_wait(10)
-	assert "No results found." not in driver.page_source
 	result = result_page.ResultPage(driver)
-	assert "Tutorialspoint" in result.search_result_table_element.text
-	assert "Python" in result.search_result_table_element.text
+	assert result.python_download_link.is_displayed

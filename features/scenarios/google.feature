@@ -1,6 +1,6 @@
-Feature: I can search for Python tutorials
+Feature: I can search for Python
 
   Scenario: 1 I can search for Python
     Given I am on Google
-    When I serach for "python"
-    Then I can see a tutorial's point link
+    When I search for "python"
+    Then I can see a python download link
