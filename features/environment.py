@@ -1,4 +1,3 @@
-from pages import home_page
 from selenium import webdriver
 
 def before_scenario(context, scenario):
