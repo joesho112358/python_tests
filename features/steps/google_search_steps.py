@@ -13,17 +13,17 @@ from pages.google.result_page import ResultPage as google_result
 def step_impl(context):
 	driver = context.driver
 	home = google_home(driver)
-	home.get("https://www.google.com")
+	home.get(home.url)
 	assert "Google" == driver.title
 
 @given('I have searched for python')
 def step_impl(context):
 	context.execute_steps("""
         given I am on Google
-        when I search for "python"
+        when I Google "python"
     """)
 
-@when('I search for "{text}"')
+@when('I Google "{text}"')
 def step_impl(context, text):
 	home = google_home(context.driver)
 	home.search_element = text
